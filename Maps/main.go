@@ -21,4 +21,20 @@ func main() {
 	//  Delete Bob Marks
 	delete(studentGrades, "Bob")
 	fmt.Println("Marks of Bob : ", studentGrades["Bob"])
+
+	// Check key present or not
+	grades, exists := studentGrades["David"]
+	fmt.Println("Grades of David : ", grades)
+	fmt.Println("Exists of David : ", exists)
+
+	//  fmt.Println("Marks of David : ", studentGrades["David"])
+
+	// Check key present or not
+	Grades, Exists := studentGrades["Alex"]
+	fmt.Println("Grades of Alex : ", Grades)
+	fmt.Println("Exists of Alex : ", Exists)
+
+	for index, value := range studentGrades {
+		fmt.Printf("Key is %s and marks is %d\n", index, value)
+	}
 }
