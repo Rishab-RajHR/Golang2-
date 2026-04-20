@@ -37,4 +37,15 @@ func main() {
 	for index, value := range studentGrades {
 		fmt.Printf("Key is %s and marks is %d\n", index, value)
 	}
+
+	// Map declare and initialize at the same time
+	person := map[string]int{
+		"Alice":   90,
+		"Bob":     85,
+		"Charlie": 95,
+	}
+
+	for index, value := range person {
+		fmt.Printf("key is %s and marks is %d\n", index, value)
+	}
 }
