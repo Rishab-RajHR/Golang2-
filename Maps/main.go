@@ -46,6 +46,6 @@ func main() {
 	}
 
 	for index, value := range person {
-		fmt.Printf("key is %s and marks is %d\n", index, value)
+		fmt.Printf("---------key is %s and marks is %d\n", index, value)
 	}
 }
