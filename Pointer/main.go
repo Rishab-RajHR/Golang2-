@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func modifyValueReference(num *int) {
-	*num = *num * 20
+	*num = *num + 20
 }
 
 func main() {
