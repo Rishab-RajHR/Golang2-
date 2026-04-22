@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+func modifyValueReference(num *int) {
+	*num = *num * 20
+}
+
 func main() {
 	// var num int
 	num := 2
@@ -18,4 +22,8 @@ func main() {
 	if pointer == nil {
 		fmt.Println("Pointer is not assigned")
 	}
+
+	value := 10
+	modifyValueReference(&value)
+	fmt.Println("Value contains : ", value)
 }
