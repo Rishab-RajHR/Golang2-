@@ -3,12 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	var num int
-	num = 2
+	// var num int
+	num := 2
 
-	var ptr *int
-	ptr = &num
+	// var ptr *int
+	// ptr = &num
+	ptr := &num
 
-	fmt.Println("Num has value: ", num)
+	// fmt.Println("Num has value: ", num)
 	fmt.Println("Pointer contains: ", ptr)
+	fmt.Println("Data contains through Pointer: ", *ptr)
 }
