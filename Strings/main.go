@@ -14,7 +14,13 @@ func main() {
 	count := strings.Count(str, "two")
 	fmt.Println("count: ", count)
 
+	// Remove Starting and Ending Spaces
 	str = "   Hello,Go!  "
 	trimmed := strings.TrimSpace(str)
 	fmt.Println("trimmed: ", trimmed)
+
+	str1 := "Alex"
+	str2 := "Pandian"
+	result := strings.Join([]string{str1, str2}, " ")
+	fmt.Println("result: ", result)
 }
