@@ -1,0 +1,16 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+
+	currentTime := time.Now()
+	fmt.Println("Current time: ", currentTime)
+	fmt.Printf("Type of currentTime %T\n", currentTime)
+
+	formatted := currentTime.Format("dd-mm-yyyy")
+	fmt.Println("Formatted time: ", formatted)
+}
