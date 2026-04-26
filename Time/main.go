@@ -11,6 +11,6 @@ func main() {
 	fmt.Println("Current time: ", currentTime)
 	fmt.Printf("Type of currentTime %T\n", currentTime)
 
-	formatted := currentTime.Format("dd-mm-yyyy")
+	formatted := currentTime.Format("02-01-2006, Monday")
 	fmt.Println("Formatted time: ", formatted)
 }
