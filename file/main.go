@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-	file, err := os.Create("example.txt")
+
+	/*file, err := os.Create("example.txt")
 	if err != nil {
 		fmt.Println("Error while creating file: ", err)
 		return
@@ -15,11 +16,39 @@ func main() {
 	defer file.Close()
 
 	content := "Hello World By Alex"
-	_, errors := io.WriteString(file, content)
+	byte, errors := io.WriteString(file, content+"\n")
+	fmt.Println("Byte Written: ", byte)
 	if errors != nil {
 		fmt.Println("Error while writing file: ", errors)
 		return
 	}
 
 	fmt.Println("Successfully Created File")
+	*/
+
+	file, err := os.Open("example.txt")
+	if err != nil {
+		fmt.Println("Error while opening file: ", err)
+		return
+	}
+	defer file.Close()
+
+	// Create a buffer to read the file content
+	buffer := make([]byte, 1024)
+
+	// Read the file content into the buffer
+	for {
+		n, err := file.Read(buffer)
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			fmt.Println("Error while reading file", err)
+			return
+		}
+
+		// Process the read content
+		fmt.Println(string(buffer[:n]))
+	}
+
 }
