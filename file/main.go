@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io"
-	"os"
+	"io/ioutil"
 )
 
 func main() {
@@ -26,7 +25,7 @@ func main() {
 	fmt.Println("Successfully Created File")
 	*/
 
-	file, err := os.Open("example.txt")
+	/*file, err := os.Open("example.txt")
 	if err != nil {
 		fmt.Println("Error while opening file: ", err)
 		return
@@ -49,6 +48,14 @@ func main() {
 
 		// Process the read content
 		fmt.Println(string(buffer[:n]))
+	}*/
+
+	// Read the entire file into a byte slice
+	content, err := ioutil.ReadFile("example.txt")
+	if err != nil {
+		fmt.Println("Error while reading file ", err)
+		return
 	}
+	fmt.Println(string(content))
 
 }
