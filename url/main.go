@@ -16,4 +16,10 @@ func main() {
 		return
 	}
 	fmt.Printf("Type of URL: %T\n", parsedURL)
+
+	fmt.Println("Scheme: ", parsedURL.Scheme)
+	fmt.Println("Host: ", parsedURL.Host)
+	fmt.Println("Path: ", parsedURL.Path)
+	fmt.Println("RawQuery: ", parsedURL.RawQuery)
+
 }
