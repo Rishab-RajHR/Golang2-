@@ -7,7 +7,7 @@ import (
 
 func main() {
 	fmt.Println("Learning URL")
-	myURL := "http://localhost:5173/"
+	myURL := "https://www.google.com/search?q=google&"
 	fmt.Printf("Type of URL: %T\n", myURL)
 
 	parsedURL, err := url.Parse(myURL)
@@ -15,11 +15,19 @@ func main() {
 		fmt.Println("Can't parse URL ", err)
 		return
 	}
-	fmt.Printf("Type of URL: %T\n", parsedURL)
+	// fmt.Printf("Type of URL: %T\n", parsedURL)
 
 	fmt.Println("Scheme: ", parsedURL.Scheme)
 	fmt.Println("Host: ", parsedURL.Host)
 	fmt.Println("Path: ", parsedURL.Path)
 	fmt.Println("RawQuery: ", parsedURL.RawQuery)
+
+	//  Modifying URL components
+	parsedURL.Path = "/newPath"
+	parsedURL.RawQuery = "username=iamalex"
+
+	// Constructing a URL string from a URL object
+	newUrl := parsedURL.String()
+	fmt.Println("new URL: ", newUrl)
 
 }
