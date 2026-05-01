@@ -14,7 +14,7 @@ type Person struct {
 func main() {
 	fmt.Println("We are Learning JSON")
 	person := Person{Name: "John", Age: 23, IsAdult: true}
-	fmt.Println("Person Data is : ", person)
+	// fmt.Println("Person Data is : ", person)
 
 	// Convert person into JSON Encoding (Marshalling)
 	jsonData, err := json.Marshal(person)
@@ -23,4 +23,13 @@ func main() {
 		return
 	}
 	fmt.Println("Person data is : ", string(jsonData))
+
+	// Decoding (Unmarshalling)
+	var personData Person
+	err = json.Unmarshal(jsonData, &personData)
+	if err != nil {
+		fmt.Println("Error unmarshalling ", err)
+		return
+	}
+	fmt.Println("Person Data after unmarshalling: ", personData)
 }
