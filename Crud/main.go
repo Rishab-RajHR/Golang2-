@@ -15,6 +15,11 @@ func main() {
 	}
 	defer res.Body.Close()
 
+	if res.StatusCode != http.StatusOK {
+		fmt.Println("Error in getting Response: ", res.Status)
+		return
+	}
+
 	data, err := ioutil.ReadAll(res.Body)
 	if err != nil {
 		fmt.Println("Error reading : ", err)
