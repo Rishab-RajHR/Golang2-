@@ -15,7 +15,7 @@ type Todo struct {
 
 func main() {
 	fmt.Println("Learning CRUD...")
-	res, err := http.Get("https://jsonplaceholder.typicode.com/todos")
+	res, err := http.Get("https://jsonplaceholder.typicode.com/todos/1")
 	if err != nil {
 		fmt.Println("Error getting : ", err)
 		return
@@ -34,12 +34,14 @@ func main() {
 	// }
 	// fmt.Println("Data: ", string(data))
 
-	var todo Todo
-	err = json.NewDecoder(res.Body).Decode(&todo)
+	var todos Todo
+	err = json.NewDecoder(res.Body).Decode(&todos)
 	if err != nil {
 		fmt.Println("Error decoding : ", err)
 		return
 	}
-	fmt.Println("Todo: ", todo)
+	fmt.Println("Todo: ", todos)
+	fmt.Println("Title response: ", todos)
+	fmt.Println("completed response: ", todos)
 
 }
