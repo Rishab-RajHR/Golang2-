@@ -1,10 +1,17 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
 )
+
+type Todo struct {
+	UserID    int    `json:"userId"`
+	Id        int    `json:"id"`
+	Title     string `json:"title"`
+	Completed bool   `json:"completed"`
+}
 
 func main() {
 	fmt.Println("Learning CRUD...")
@@ -20,11 +27,19 @@ func main() {
 		return
 	}
 
-	data, err := ioutil.ReadAll(res.Body)
+	// data, err := ioutil.ReadAll(res.Body)
+	// if err != nil {
+	// 	fmt.Println("Error reading : ", err)
+	// 	return
+	// }
+	// fmt.Println("Data: ", string(data))
+
+	var todo Todo
+	err = json.NewDecoder(res.Body).Decode(&todo)
 	if err != nil {
-		fmt.Println("Error reading : ", err)
+		fmt.Println("Error decoding : ", err)
 		return
 	}
-	fmt.Println("Data: ", string(data))
+	fmt.Println("Todo: ", todo)
 
 }
