@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"strings"
 )
@@ -105,7 +106,21 @@ func performUpdateRequest() {
 	req, err := http.NewRequest(http.MethodPut, myurl, jsonReader)
 	if err != nil {
 		fmt.Println("Error creating PUT Request : ", err)
+		return
 	}
+	req.Header.Set("Content-type", "application/json")
+
+	// Send the Request
+	client := http.Client{}
+	res, err := client.Do(req)
+	if err != nil {
+		fmt.Println("Error Sending Request : ", err)
+		return
+	}
+	defer res.Body.Close()
+
+	data, err := ioutil.ReadAll(res.Body)
+	fmt.Println("Response : ", string(data))
 }
 
 func main() {
