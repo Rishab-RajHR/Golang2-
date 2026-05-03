@@ -119,12 +119,14 @@ func performUpdateRequest() {
 	}
 	defer res.Body.Close()
 
-	data, err := ioutil.ReadAll(res.Body)
+	data, _ := ioutil.ReadAll(res.Body)
 	fmt.Println("Response : ", string(data))
+	fmt.Println("Response status : ", res.Status)
 }
 
 func main() {
 	fmt.Println("Learning CRUD...")
 	// performGetRequest()
 	// performPostRequest()
+	performUpdateRequest()
 }
