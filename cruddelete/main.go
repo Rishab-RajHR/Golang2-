@@ -124,9 +124,31 @@ func performUpdateRequest() {
 	fmt.Println("Response status : ", res.Status)
 }
 
+func performDeleteRequest() {
+	const myurl = "https://jsonplaceholder.typicode.com/todos/1"
+
+	// create DELETE Request
+	req, err := http.NewRequest(http.MethodDelete, myurl, nil)
+	if err != nil {
+		fmt.Println("Error creating Delete Request : ", err)
+		return
+	}
+
+	// Send the request
+	client := http.Client{}
+	res, err := client.Do(req)
+	if err != nil {
+		fmt.Println("Error sending request : ", err)
+		return
+	}
+
+	defer res.Body.Close()
+	fmt.Println("Response status : ", res.Status)
+}
+
 func main() {
 	fmt.Println("Learning CRUD...")
 	// performGetRequest()
 	// performPostRequest()
-	performUpdateRequest()
+	performDeleteRequest()
 }
