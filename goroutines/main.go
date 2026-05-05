@@ -13,6 +13,7 @@ func sayHello() {
 
 func sayHi() {
 	fmt.Println("Hi Alex :)")
+	time.Sleep(1000 * time.Millisecond) // Simulating some work
 }
 
 func main() {
